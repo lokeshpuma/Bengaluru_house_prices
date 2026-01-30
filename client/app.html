@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore Home Price Predictor</title>
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="app.css">
+    
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Bangalore Home Price Predictor</h1>
+            <p class="subtitle">Get instant price estimates for properties in Bangalore</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="priceForm">
+                <!-- Area Input -->
+                <div class="form-group">
+                    <label for="uiSqft">Area (Square Feet)</label>
+                    <input type="number" 
+                           id="uiSqft" 
+                           class="area-input" 
+                           name="Squareft" 
+                           placeholder="Enter area in square feet"
+                           min="300"
+                           required>
+                </div>
+
+                <!-- BHK Selection -->
+                <div class="form-group">
+                    <label>BHK (Bedrooms)</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bhk-1" name="uiBHK" value="1">
+                            <label for="radio-bhk-1" class="radio-label">1</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked>
+                            <label for="radio-bhk-2" class="radio-label">2</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bhk-3" name="uiBHK" value="3">
+                            <label for="radio-bhk-3" class="radio-label">3</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bhk-4" name="uiBHK" value="4">
+                            <label for="radio-bhk-4" class="radio-label">4</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bhk-5" name="uiBHK" value="5">
+                            <label for="radio-bhk-5" class="radio-label">5</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bathroom Selection -->
+                <div class="form-group">
+                    <label>Bathrooms</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bath-1" name="uiBathrooms" value="1">
+                            <label for="radio-bath-1" class="radio-label">1</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked>
+                            <label for="radio-bath-2" class="radio-label">2</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bath-3" name="uiBathrooms" value="3">
+                            <label for="radio-bath-3" class="radio-label">3</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bath-4" name="uiBathrooms" value="4">
+                            <label for="radio-bath-4" class="radio-label">4</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="radio-bath-5" name="uiBathrooms" value="5">
+                            <label for="radio-bath-5" class="radio-label">5</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Selection -->
+                <div class="form-group">
+                    <label for="uiLocations">Location</label>
+                    <select id="uiLocations" class="location-select" required>
+                        <option value="" disabled selected>Choose a location</option>
+                        <!-- Locations will be populated dynamically -->
+                    </select>
+                </div>
+
+                <!-- Estimate Button -->
+                <div class="form-group">
+                    <button type="button" class="estimate-btn" onclick="onClickedEstimatePrice()">
+                        Estimate Price
+                    </button>
+                </div>
+
+                <!-- Result Display -->
+                <div id="uiEstimatedPrice" class="result-container" style="display: none;">
+                    <h2>Estimated Price</h2>
+                    <div class="price-display">
+                        <span class="price-value" id="priceValue">0</span>
+                        <span class="price-currency">Lakhs</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Bangalore Home Price Predictor</p>
+        </div>
+    </div>
+</body>
+</html>
